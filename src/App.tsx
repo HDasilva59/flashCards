@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FormCard from './Formcards';
+import MentalCard from './Mentalcard';
 
-function App() {
+const App = () => {
+const [whichCard, setWichCard] = React.useState(0)
+
+function WhichMentalCard (){
+  if (whichCard === 0) {
+    return <MentalCard/>
+  } else if (whichCard === 1){
+    return <FormCard/>
+  } else if (whichCard === 2) {
+    return "Elle, c'est celle avec plein de boutons un peu comme moi à 15 ans"
+  }
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <ul>
+          <li onClick={() => setWichCard(0)}>MentalCard</li>
+          <li onClick={() => setWichCard(1)}>MentalCard with form</li>
+          <li onClick={() => setWichCard(2)}>QCM</li>
+        </ul>
+        <p>{WhichMentalCard()}</p>
     </div>
   );
 }
