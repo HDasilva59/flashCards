@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import FormCard from './Formcards';
-import MentalCard from './Mentalcard';
+import Checkcards from './Components/Checkcards';
+import FormCard from './Components/Formcards';
+import MentalCard from './Components/Mentalcard';
 
 const App = () => {
 const [whichCard, setWichCard] = React.useState(0)
@@ -12,7 +13,7 @@ function WhichMentalCard (){
   } else if (whichCard === 1){
     return <FormCard/>
   } else if (whichCard === 2) {
-    return "Elle, c'est celle avec plein de boutons un peu comme moi à 15 ans"
+    return <Checkcards/>
   }
 }
 
