@@ -4,8 +4,8 @@ import { gonnaBeADataBase } from "../data/data";
 const FormCard = () => {
   const [response, setResponse] = useState(0);
   const [currentCard, setCurrentCard] = useState(
-    Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1)
-  );
+    Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1));
+    //randomly give a first question
   const [userValue, setUserValue] = useState("Blablilbou");
   const [trueOrFalse, setTrueOrFalse] = useState("");
 
@@ -16,6 +16,7 @@ const FormCard = () => {
       setTrueOrFalse("this is not true");
     }
   }, [response]);
+  //update the response each time the usergive a response
 
   function isThatAGoodAnswer(answer: string) {
     if (
@@ -23,13 +24,11 @@ const FormCard = () => {
       gonnaBeADataBase[currentCard].goodanswer.toLowerCase()
     ) {
       setResponse(1);
-      console.log("test ligne 15");
     } else {
       setResponse(2);
-      console.log("test ligne 18");
     }
   }
-
+//Check if the answer the playergave is the good one, if it is, it set the reponse value to 1 else, it set the response value to 2
   return (
     <div className="container">
       <div className="row align-items-start">
@@ -58,7 +57,7 @@ const FormCard = () => {
 
               <form>
                 <label>
-                  réponse :
+                  Réponse :
                   <input
                     id="response"
                     onChange={(event) => setUserValue(event.target.value)}
@@ -66,12 +65,14 @@ const FormCard = () => {
                     name="name"
                   />
                 </label>
-                <button
-                  type="button"
-                  onClick={() => isThatAGoodAnswer(userValue)}
-                >
-                  Valider
-                </button>
+                <div>
+                <br />
+                <div>
+                  <button type="button" onClick={() => isThatAGoodAnswer(userValue)}>
+                    Valider
+                  </button>
+                </div>
+                </div>
               </form>
               {trueOrFalse}
             </div>
@@ -84,7 +85,5 @@ const FormCard = () => {
     </div>
   );
 };
-
-//prevent default
 
 export default FormCard;

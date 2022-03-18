@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import { gonnaBeADataBase } from "../data/data";
+import test from "../data/datajson.json"
 
 const Checkcards = () => {
-  const [currentCard, setCurrentCard] = useState(Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1));
+  const [currentCard, setCurrentCard] = useState(Math.floor(Math.random() * (gonnaBeADataBase.length)));
   const [shuffledQuestions, setShuffledQuestions] = useState(["", "", "", ""]);
   const [userAnswer, setUserAnswer] = useState("");
   const [results, setResults] = useState("");
@@ -11,11 +11,13 @@ const Checkcards = () => {
   useEffect(() => {
     shuffleResponses();
   }, [currentCard]);
+//Shuffle checkboxs when the current Card is changed
 
   function changeQuestion() {
-    setCurrentCard(Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1));
+    setCurrentCard(Math.floor(Math.random() * (gonnaBeADataBase.length)));
     setResults("")
   }
+  //This function is activated only when you click on the question, it change the question and reset the response
 
   function shuffleResponses() {
     const bufferArray = [
@@ -26,6 +28,7 @@ const Checkcards = () => {
     ];
     setShuffledQuestions(bufferArray.sort((a, b) => 0.5 - Math.random()));
   }
+//Shuffle checkboxs by pushing it in a buffer array and sort it
 
   function isThatAGoodAnswer() {
     if (userAnswer === gonnaBeADataBase[currentCard].goodanswer) {
@@ -36,7 +39,7 @@ const Checkcards = () => {
       setResults("t'as perdu, cheh")
     }
   }
-
+//Check if the response the player gave is the good one
   return (
     <div className="container">
       <div className="row align-items-start">

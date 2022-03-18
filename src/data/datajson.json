@@ -1,0 +1,30 @@
+[
+  {
+    "question": "question 1",
+    "goodanswer": "good answer",
+    "answer2":"anwer 2",
+    "answer3":"answer 3",
+    "answer4":"answer 4"
+  },
+  {
+    "question": "question 2",
+    "goodanswer": "good answer",
+    "answer 2":"anwer 2",
+    "answer 3":"answer 3",
+    "answer 4":"answer 4"
+  },
+  {
+    "question": "question 3",
+    "goodanswer": "good answer",
+    "answer 2":"anwer 2",
+    "answer 3":"answer 3",
+    "answer 4":"answer 4"
+  },
+  {
+    "question": "question 4",
+    "goodanswer": "good answer",
+    "answer 2":"anwer 2",
+    "answer 3":"answer 3",
+    "answer 4":"answer 4"
+  }
+]

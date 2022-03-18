@@ -5,6 +5,7 @@ const MentalCard = () => {
   const [showTheCard, setShowTheCard] = React.useState(0);
   const [currentCard, setCurrentCard] = React.useState(
     Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1)
+    //randomly give a first question
   );
 
   function showCard() {
@@ -19,6 +20,7 @@ const MentalCard = () => {
       setShowTheCard(0);
     }
   }
+  //show the question then the response when the question or the response is clicked
 
   return (
     <div className="container">
@@ -28,7 +30,7 @@ const MentalCard = () => {
         </div>
         <div className="col">
           <div className="card text-dark bg-light mb-3">
-            <div className="card-header">MentalCard</div>
+            <div className="card-header">MentalCards</div>
             <div className="card-body">
               <p
                 onClick={() => setShowTheCard(showTheCard + 1)}

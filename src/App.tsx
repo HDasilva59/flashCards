@@ -36,10 +36,10 @@ const App = () => {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
               <li onClick={() => setWichCard(0)} className="nav-link">
-                MentalCard
+                MentalCards
               </li>
               <li onClick={() => setWichCard(1)} className="nav-link">
-                MentalCard with form
+                FormCards
               </li>
               <li onClick={() => setWichCard(2)} className="nav-link">
                 QCM
