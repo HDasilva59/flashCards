@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import { gonnaBeADataBase } from "../data/data";
 
 const Checkcards = () => {
-  const [currentCard, setCurrentCard] = useState(0);
+  const [currentCard, setCurrentCard] = useState(Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1));
   const [shuffledQuestions, setShuffledQuestions] = useState(["", "", "", ""]);
   const [userAnswer, setUserAnswer] = useState("");
   const [results, setResults] = useState("");
@@ -12,9 +13,8 @@ const Checkcards = () => {
   }, [currentCard]);
 
   function changeQuestion() {
-    setCurrentCard(
-      Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1)
-    );
+    setCurrentCard(Math.floor(Math.random() * (gonnaBeADataBase.length - 1) + 1));
+    setResults("")
   }
 
   function shuffleResponses() {
@@ -30,8 +30,10 @@ const Checkcards = () => {
   function isThatAGoodAnswer() {
     if (userAnswer === gonnaBeADataBase[currentCard].goodanswer) {
       setResults("C'est gagné");
+    } else if (userAnswer === undefined){
+      setResults("Cliquez sur un carré avant d'envoyer votre réponse!");
     } else {
-      setResults("C'est perdu");
+      setResults("t'as perdu, cheh")
     }
   }
 
